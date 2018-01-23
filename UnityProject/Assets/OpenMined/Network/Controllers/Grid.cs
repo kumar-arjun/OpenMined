@@ -165,10 +165,6 @@ namespace OpenMined.Network.Controllers
                 optimizer.Step(100, i);
             }
 
-            var softmax = new Softmax(this.controller, 1);
-            var res = seq.Forward(inputTensor);
-            var r = softmax.Forward(res);
-
             var resultJob = new Ipfs();
             var response = resultJob.Write(new IpfsJob(job.input, job.target, seq.GetConfig(), job.config));
 
